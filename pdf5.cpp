@@ -42,7 +42,7 @@
 //    const int tabsize = 10;
 //    int liczby[tabsize];
 //
-//    cout << "Podaj 10 liczb" << endl;
+//    cout << "Podaj 10 liczb \n";
 //    for (int i = 0; i < tabsize; ++i) {
 //        cout << "Liczba " << i + 1 << ": ";
 //        cin >> liczby[i];
@@ -78,11 +78,6 @@
 
 
 
-
-
-
-
-
 // Zadanie 2
 
 
@@ -109,3 +104,50 @@
 //    cout << endl;
 //}
 
+// Zadanie 3
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int main()
+{
+	const int tabsize = 10;
+	int tab[tabsize];
+	srand(time(0));
+	for (int i = 0; i < 10; i++)
+	{
+
+		int losowa = rand() % 101;
+		cout << "liczba: " << i + 1 << "\t" << losowa << endl; 
+		tab[i] = losowa;
+	}
+	cout << "========================================= \n";
+
+	float suma = 0;
+	for (int i = 0; i < tabsize; ++i) {
+		suma += tab[i];
+	}
+	double sa = suma / tabsize;
+	cout << "\n" << sa << endl;
+	cout << "=================================== \n";
+	int mniejsze = 0;
+	for (int i = 0; i < tabsize; ++i) {
+		if (tab[i] < sa)
+			mniejsze++;
+	}
+	cout << mniejsze << endl;
+
+	cout << "=============== min i max =============\n" ;
+
+	int min = tab[0];
+	int max = tab[0];
+	for (int i = 1; i < tabsize; ++i) {
+		if (tab[i] < min) min = tab[i];
+		if (tab[i] > max) max = tab[i];
+	}
+	cout << "Najmniejszy element: " << min << endl;
+	cout << "Najwiekszy element: " << max << endl;
+	return 0;
+}
